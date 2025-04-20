@@ -1,0 +1,37 @@
+.bk-card {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f0f8ff; /* Light blue background */
+  border: 2px solid #4682b4; /* Steel blue border */
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.bk-card-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #4682b4;
+  color: #2c3e50;
+}
+
+.bk-card-content {
+  color: #34495e;
+  font-size: 0.9em;
+}
+
+.bk-card .react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background-color: #4682b4;
+}
+
+.bk-card .react-flow__handle-top {
+  top: -5px;
+}
+
+.bk-card .react-flow__handle-bottom {
+  bottom: -5px;
+} 

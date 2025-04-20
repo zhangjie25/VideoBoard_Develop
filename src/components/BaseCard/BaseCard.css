@@ -1,0 +1,329 @@
+.base-card {
+  padding: 10px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 240px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 45px; /* Minimum height when collapsed */
+}
+
+.base-card.expanded {
+  min-height: 200px;
+}
+
+.card-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #f0f4f8;
+  border-radius: 4px;
+  cursor: pointer;
+  min-height: 30px; /* Ensure the header has a minimum height */
+}
+
+/* Add style for when dragging is active */
+.card-header.xxx {
+  cursor: grab; /* Change to a grab hand when hovering */
+}
+
+/* This class will be added by React Flow when dragging is active */
+.card-header.xxx:active {
+  cursor: grabbing; /* Change to a grabbing hand when actively dragging */
+}
+
+/* For when the React Flow dragging class is added */
+.dragging .card-header.xxx {
+  cursor: grabbing;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px; /* Ensure title doesn't push out the expand button */
+}
+
+.expand-button {
+  background: transparent;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0; /* Prevent the button from shrinking */
+}
+
+.expand-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-sub-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.text-div {
+  width: 100%;
+}
+
+.text-input {
+  width: 100%;
+  min-height: 50px;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  resize: none;
+  font-family: inherit;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.multimedia-div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.media-placeholder {
+  min-height: 60px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #ccc;
+  cursor: pointer;
+  color: #777;
+}
+
+.media-placeholder span {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.media-placeholder p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.card-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.control-btn {
+  background: #f0f4f8;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background: #e0e5ea;
+}
+
+/* Handle styling */
+.base-card .react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.base-card .react-flow__handle-top {
+  top: -4px;
+}
+
+.base-card .react-flow__handle-bottom {
+  bottom: -4px;
+}
+
+.card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Animation classes */
+.card-expand {
+  animation: expand 0.5s ease-out forwards;
+}
+
+.card-collapse {
+  animation: collapse 0.5s ease-out forwards;
+}
+
+@keyframes expand {
+  from { 
+    max-height: 0;
+    opacity: 0; 
+    transform: translateY(-10px);
+  }
+  to { 
+    max-height: 500px;
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes collapse {
+  from { 
+    max-height: 500px;
+    opacity: 1; 
+    transform: translateY(0);
+  }
+  to { 
+    max-height: 0;
+    opacity: 0; 
+    transform: translateY(-10px);
+  }
+}
+
+/* Tab styles */
+.tab-container {
+  display: flex;
+  overflow-x: auto;
+  background-color: #4285f4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px 5px 0;
+  scrollbar-width: none; /* Firefox */
+  position: relative;
+  z-index: 5;
+}
+
+.tab-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.tab-item {
+  padding: 8px 15px;
+  min-width: 80px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-right: 2px;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-item:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.tab-item.active {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: 500;
+}
+
+.tab-item.add-tab {
+  min-width: 40px;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.card-body {
+  padding: 0;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.base-card.expanded .card-div {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.base-card.expanded .card-header {
+  background-color: #4285f4;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.tab-ghost {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Make the card content look like the reference image */
+.card-sub-div {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.base-card.expanded .card-div {
+  overflow: visible;
+}
+
+/* When not showing tabs, use original styles */
+.base-card:not(.expanded) .card-body {
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Additional styles to match reference image */
+.base-card.expanded .card-header.xxx {
+  padding: 10px 15px;
+  border-bottom: none;
+} 
