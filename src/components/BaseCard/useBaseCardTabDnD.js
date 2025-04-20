@@ -1,12 +1,12 @@
 import { useState, useRef } from 'react';
 import { useReactFlow } from '@xyflow/react';
-import { useNodeUtils } from './useNodeUtils';
-import { useIdGenerator } from './useIdGenerator';
+import { useBaseCardNodeUtils } from './useBaseCardNodeUtils';
+import { useBaseCardIdGenerator } from './useBaseCardIdGenerator';
 
-export function useTabDragAndDrop({ id, tabs, activeTab, setTabs, setActiveTab, dndState }) {
+export function useBaseCardTabDnD({ id, tabs, activeTab, setTabs, setActiveTab, dndState }) {
   const { getNode, getNodes, setNodes } = useReactFlow();
-  const { updateNodeData, updateMultipleNodes, removeNode } = useNodeUtils({ id });
-  const { generateTabId, generateNodeId } = useIdGenerator();
+  const { updateNodeData, updateMultipleNodes, removeNode } = useBaseCardNodeUtils({ id });
+  const { generateTabId, generateNodeId } = useBaseCardIdGenerator();
   const { setIsDraggingTab, setTabSourceNodeId, isDraggingTab, tabSourceNodeId } = dndState || {};
   
   // State for drag handling

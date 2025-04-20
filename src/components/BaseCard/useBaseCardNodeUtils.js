@@ -1,6 +1,9 @@
 import { useReactFlow } from '@xyflow/react';
 
-export function useNodeUtils({ id }) {
+/**
+ * Custom hook providing utility functions for BaseCard node operations
+ */
+export function useBaseCardNodeUtils({ id }) {
   const { setNodes } = useReactFlow();
 
   /**

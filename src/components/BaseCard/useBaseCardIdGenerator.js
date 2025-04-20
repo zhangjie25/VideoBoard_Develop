@@ -1,7 +1,7 @@
 /**
- * Custom hook for generating unique IDs
+ * Custom hook for generating unique IDs for BaseCard components
  */
-export function useIdGenerator() {
+export function useBaseCardIdGenerator() {
   /**
    * Generates a unique ID with optional prefix
    * @param {string} prefix - Optional prefix for the ID

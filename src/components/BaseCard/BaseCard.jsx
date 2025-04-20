@@ -3,7 +3,7 @@ import { Handle, useReactFlow } from '@xyflow/react';
 import './BaseCard.css';
 import BaseCardSub from './BaseCardSub';
 import { useDnD } from '../../DnDContext';
-import { useTabManagement, useTabDragAndDrop } from './hooks';
+import { useBaseCardTabManage, useBaseCardTabDnD } from './hooks';
 
 function BaseCardTemplate({ id, data, isConnectable }) {
   // ===== HOOKS =====
@@ -18,7 +18,7 @@ function BaseCardTemplate({ id, data, isConnectable }) {
     animation,
     toggleExpand,
     addNewTab
-  } = useTabManagement({ id, data });
+  } = useBaseCardTabManage({ id, data });
   
   // Custom hook for drag and drop functionality
   const {
@@ -31,7 +31,7 @@ function BaseCardTemplate({ id, data, isConnectable }) {
     handleDragEnd,
     handleDragEnter,
     handleDragLeave
-  } = useTabDragAndDrop({ id, tabs, activeTab, setTabs, setActiveTab, dndState });
+  } = useBaseCardTabDnD({ id, tabs, activeTab, setTabs, setActiveTab, dndState });
   
   // ===== DERIVED PROPS =====
   const nodeLabel = data.label || 'Node Content';

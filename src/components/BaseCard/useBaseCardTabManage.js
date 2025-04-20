@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useUpdateNodeInternals } from '@xyflow/react';
-import { useNodeUtils } from './useNodeUtils';
-import { useIdGenerator } from './useIdGenerator';
+import { useBaseCardNodeUtils } from './useBaseCardNodeUtils';
+import { useBaseCardIdGenerator } from './useBaseCardIdGenerator';
 
-export function useTabManagement({ id, data }) {
+export function useBaseCardTabManage({ id, data }) {
   const updateNodeInternals = useUpdateNodeInternals();
-  const { updateNodeData } = useNodeUtils({ id });
-  const { generateTabId } = useIdGenerator();
+  const { updateNodeData } = useBaseCardNodeUtils({ id });
+  const { generateTabId } = useBaseCardIdGenerator();
   
   // Initialize tabs from data or with a default tab
   const [tabs, setTabs] = useState(data.tabs || [{ id: '1', title: 'Tab 1', content: {} }]);

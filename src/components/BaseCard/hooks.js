@@ -1,4 +1,4 @@
-export { useIdGenerator } from './useIdGenerator';
-export { useNodeUtils } from './useNodeUtils';
-export { useTabDragAndDrop } from './useTabDragAndDrop';
-export { useTabManagement } from './useTabManagement'; 
+export { useBaseCardIdGenerator } from './useBaseCardIdGenerator';
+export { useBaseCardNodeUtils } from './useBaseCardNodeUtils';
+export { useBaseCardTabDnD } from './useBaseCardTabDnD';
+export { useBaseCardTabManage } from './useBaseCardTabManage'; 
